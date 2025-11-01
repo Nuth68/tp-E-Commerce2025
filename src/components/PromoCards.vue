@@ -20,17 +20,17 @@ const promos = [
   {
     title: 'Everyday Fresh & Clean with Our Products',
     bg: '#F9FBE7',
-    image: '/public/img11.png'
+    image: '../img11.png'
   },
   {
     title: 'Make your Breakfast Healthy and Easy',
     bg: '#E0F7FA',
-    image: '/public/img12.png'
+    image: '../img12.png'
   },
   {
     title: 'The best Organic Products Online',
     bg: '#FFF3E0',
-    image: '/public/img13.png'
+    image: '../img13.png'
   }
 ];
 </script>

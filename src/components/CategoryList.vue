@@ -15,16 +15,16 @@
 
 <script setup>
 const categories = [
-  { name: 'Cake & Milk', items: 26, image: '/public/img1.png', bg: '#F2FCE4' },
-  { name: 'Peach', items: 14, image: '/public/img2.png', bg: '#FFFCEB' },
-  { name: 'Organic Kiwi', items: 10, image: '/public/img3.png', bg: '#ECFFEC' },
-  { name: 'Red Apple', items: 20, image: '/public/img4.png', bg: '#FEEFEA' },
-  { name: 'Snack', items: 22, image: '/public/img5.png', bg: '#FFF3EB' },
-  { name: 'Black plum', items: 12, image: '/public/img6.png', bg: '#FFF3FF' },
-  { name: 'Vegetables', items: 25, image: '/public/img7.png', bg: '#F2FCE4' },
-  { name: 'Headphone', items: 18, image: '/public/img8.png', bg: '#FEEFEA' },
-  { name: 'Cake & Milk', items: 26, image: '/public/img9.png', bg: '#FFF3EB' },
-  { name: 'Orange', items: 16, image: '/public/img10.png', bg: '#FFFCEB' }
+  { name: 'Cake & Milk', items: 26, image: '../img1.png', bg: '#F2FCE4' },
+  { name: 'Peach', items: 14, image: '../img2.png', bg: '#FFFCEB' },
+  { name: 'Organic Kiwi', items: 10, image: '../img3.png', bg: '#ECFFEC' },
+  { name: 'Red Apple', items: 20, image: '../img4.png', bg: '#FEEFEA' },
+  { name: 'Snack', items: 22, image: '../img5.png', bg: '#FFF3EB' },
+  { name: 'Black plum', items: 12, image: '../img6.png', bg: '#FFF3FF' },
+  { name: 'Vegetables', items: 25, image: '../img7.png', bg: '#F2FCE4' },
+  { name: 'Headphone', items: 18, image: '../img8.png', bg: '#FEEFEA' },
+  { name: 'Cake & Milk', items: 26, image: '../img9.png', bg: '#FFF3EB' },
+  { name: 'Orange', items: 16, image: '../img10.png', bg: '#FFFCEB' }
 ];
 </script>
 
