@@ -10,7 +10,7 @@
         <h3>{{ card.title }}</h3>
         <button>Shop Now →</button>
       </div>
-      <img :src="card.image" alt="" />
+      <img :src="card.image" alt="promo image" />
     </div>
   </div>
 </template>
@@ -20,17 +20,17 @@ const promos = [
   {
     title: 'Everyday Fresh & Clean with Our Products',
     bg: '#F9FBE7',
-    image: 'https://via.placeholder.com/150?text=Onions'
+    image: '/public/img11.png'
   },
   {
     title: 'Make your Breakfast Healthy and Easy',
     bg: '#E0F7FA',
-    image: 'https://via.placeholder.com/150?text=Milk'
+    image: '/public/img12.png'
   },
   {
     title: 'The best Organic Products Online',
     bg: '#FFF3E0',
-    image: 'https://via.placeholder.com/150?text=Veggies'
+    image: '/public/img13.png'
   }
 ];
 </script>
@@ -38,11 +38,11 @@ const promos = [
 <style scoped>
 .promo-container {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   overflow-x: auto;
   white-space: nowrap;
   scroll-behavior: smooth;
-  padding-bottom: 10px;
+  padding: 20px 0;
 }
 
 /* Hide scrollbar but still scrollable */
@@ -50,32 +50,47 @@ const promos = [
   display: none;
 }
 .promo-container {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .promo-card {
   flex: 0 0 auto;
-  min-width: 250px;
-  border-radius: 12px;
-  padding: 20px;
+  min-width: 420px;
+  height: 180px;
+  border-radius: 20px;
+  padding: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+}
+
+.content {
+  max-width: 230px;
 }
 
 .promo-card h3 {
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  line-height: 1.4;
 }
 
 button {
   background-color: #4caf50;
   color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
 }
 
 button:hover {
@@ -83,8 +98,8 @@ button:hover {
 }
 
 img {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   object-fit: contain;
 }
 </style>
