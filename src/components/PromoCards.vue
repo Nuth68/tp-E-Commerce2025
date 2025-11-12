@@ -1,105 +1,117 @@
 <template>
-  <div class="promo-container">
+  <div class="promo-wrapper">
     <div
       class="promo-card"
-      v-for="(card, index) in promos"
+      v-for="(promo, index) in promotions"
       :key="index"
-      :style="{ backgroundColor: card.bg }"
+      :style="{ backgroundColor: promo.bg }"
     >
-      <div class="content">
-        <h3>{{ card.title }}</h3>
-        <button>Shop Now →</button>
+     
+      <div class="promo-text">
+        <h3>{{ promo.title }}</h3>
+        <!-- Inline button component -->
+        <button
+          class="shop-btn"
+          :style="{ backgroundColor: promo.buttonColor }"
+        >
+          {{ promo.buttonText }} →
+        </button>
       </div>
-      <img :src="card.image" alt="promo image" />
+      <img :src="promo.image" alt="promo" />
     </div>
   </div>
 </template>
 
 <script setup>
-const promos = [
+const promotions = [
   {
-    title: 'Everyday Fresh & Clean with Our Products',
+    title: 'Everyday Fresh & \nClean with Our \nProducts',
     bg: '#F9FBE7',
-    image: '../img11.png'
+    image: '../img11.png',
+    buttonText: 'Shop Now',
+    buttonColor: '#3BB77E'
   },
   {
     title: 'Make your Breakfast Healthy and Easy',
     bg: '#E0F7FA',
-    image: '../img12.png'
+    image: '../img12.png',
+    buttonText: 'Shop Now',
+    buttonColor: '#3BB77E'
   },
   {
     title: 'The best Organic Products Online',
     bg: '#FFF3E0',
-    image: '../img13.png'
+    image: '../img13.png',
+    buttonText: 'Shop Now',
+    buttonColor: '#FDC040'
   }
-];
+]
 </script>
 
 <style scoped>
-.promo-container {
+/* Layout for the wrapper */
+.promo-wrapper {
   display: flex;
-  gap: 25px;
+  gap: 20px;
   overflow-x: auto;
   white-space: nowrap;
   scroll-behavior: smooth;
-  padding: 20px 0;
+  padding-bottom: 10px;
 }
 
-/* Hide scrollbar but still scrollable */
-.promo-container::-webkit-scrollbar {
-  display: none;
-}
-.promo-container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
+/* Each card box */
 .promo-card {
-  flex: 0 0 auto;
-  min-width: 420px;
-  height: 180px;
-  border-radius: 20px;
-  padding: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  width: 430px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .promo-card:hover {
   transform: translateY(-5px);
 }
 
-.content {
-  max-width: 230px;
+/* Text block inside card */
+.promo-text {
+  max-width: 180px;
+  padding-top: 20px;
 }
 
-.promo-card h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  line-height: 1.4;
+.promo-text h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  white-space: pre-line;
+  color: #333;
+  font-weight: 900;
 }
 
-button {
-  background-color: #4caf50;
+/* Reusable button style */
+.shop-btn {
   color: white;
   border: none;
   padding: 8px 16px;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 6px;
   font-size: 14px;
-  transition: background 0.2s ease;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-weight: 500;
 }
 
-button:hover {
-  background-color: #43a047;
+.shop-btn:hover {
+  opacity: 0.85;
 }
 
-img {
-  width: 130px;
-  height: 130px;
-  object-fit: contain;
+/* Image styling */
+.promo-card img {
+  width: 200px;
+  height:140px;
+
 }
 </style>
