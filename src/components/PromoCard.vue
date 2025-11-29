@@ -75,4 +75,7 @@ export default {
     grid-template-columns: 1fr;
   }
 }
+.banners{
+  margin-bottom: 30px;
+}
 </style>

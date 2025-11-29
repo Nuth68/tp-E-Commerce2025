@@ -40,7 +40,7 @@
     <div class="content">
       <p class="brand">{{ brand ?? 'Hodo Foods' }}</p>
 
-      <p class="description">{{ description }}</p>
+      <p class="description">{{ description ??'adhsshadd'}}</p>
 
       <!-- Star Rating -->
       <div class="rating-section">
