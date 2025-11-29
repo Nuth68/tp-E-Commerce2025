@@ -1,3 +1,4 @@
+
 <template>
   <div class="banners">
     <div
@@ -8,7 +9,10 @@
     >
       <div>
         <h3>{{ promo.title }}</h3>
-        <button :style="{ backgroundColor: promo.buttonColor } " @click="shopnow(promo)"     >
+        <button 
+          :style="{ backgroundColor: promo.buttonColor }"
+          @click="shopnow(promo)"
+        >
           Shop Now →
         </button>
       </div>
@@ -20,15 +24,16 @@
 
 <script>
 export default {
-  name: "PromotionList",
+  name: "PromoCard",
   props: { promotions: Array },
   methods: {
     shopnow(promo) {
-      alert("let's shop from: " + promo.title);
+      alert("Let's shop from: " + promo.title)
     }
   }
-};
+}
 </script>
+
 
 <style scoped>
 .banners {

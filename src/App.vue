@@ -1,65 +1,71 @@
 <template>
-  <div class="home">
+  <div>
+    <!-- Menu Section -->
+    <MenuBar :NameMenu="'Menu'" :groups="groups" @group-selected="handleGroupSelected" />
 
-    <CategoryListLocal :categories="categories" />
-    <PromotionListLocal :promotions="promotions" />
+      <!-- Category Section -->
+    <CategoryList :categories="categories" />
+
+    <!-- Promotion Section -->
+    <PromoCard :promotions="promotions" />
+
+     <MenuBar :NameMenu="'Menu'" :groups="groups" @group-selected="handleGroupSelected" />
+
+  
+
+    <!-- Products Section -->
+    <div class="products-section">
+      <h2>Products</h2>
+      <div class="products-grid">
+        <ProductCard
+          v-for="product in products"
+          :key="product.id"
+          :productImage="`http://localhost:3000/${JSON.parse(product.image)[0].replace(/\\/g, '/')}`"
+          :productRating="product.rating"
+          :brand="'Hodo Foods'"
+          :description="product.name"
+          :weight="product.size"
+          :discountPrice="product.price"
+          :originalPrice="product.price"
+          :bgpromotion="'#FF6F61'"
+        />
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import CategoryList from "./components/CategoryCompoenet.vue";
-import PromotionList from "./components/PromoCard.vue";
+import { useProductStore } from "./stores/products"
+import { mapState } from "pinia"
+import { onMounted } from "vue"
+import PromoCard from "./components/PromoCard.vue"
+import CategoryList from "./components/CategoryCompoenet.vue"
+import Menu from "./components/Menu.vue"
+import ProductCard from "./components/ProductCard.vue"
 
 export default {
-  name: "Home",
+  components: { PromoCard, CategoryList, MenuBar: Menu, ProductCard },
 
-  components: {
-    CategoryListLocal: CategoryList,
-    PromotionListLocal: PromotionList,
-  },
-
-  data() {
-    return {
-      categories: [], 
-      promotions: []  
-    };
+  computed: {
+    ...mapState(useProductStore, {
+      categories: (store) => store.categories,
+      promotions: (store) => store.promotions,
+      groups: (store) => store.groups,
+      products: (store) => store.products
+    })
   },
 
   methods: {
-    async fetchCategories() {
-      try {
-        const res = await axios.get("http://localhost:3000/api/categories");
-        this.categories = res.data;   
-        console.log("Loaded categories:", this.categories);
-      } catch (err) {
-        console.error("Error loading categories:", err);
-      }
-    },
-
-    async fetchPromotions() {
-      try {
-        const res = await axios.get("http://localhost:3000/api/promotions");
-        this.promotions = res.data;
-        console.log("Loaded promotions:", this.promotions);
-      } catch (err) {
-        console.error("Error loading promotions:", err);
-      }
-    },
+    handleGroupSelected(group) {
+      console.log('Selected group:', group)
+      // Handle group selection logic here
+    }
   },
 
-  mounted() {
-   
-    this.fetchCategories();
-    this.fetchPromotions();
+  setup() {
+    const store = useProductStore()
+    onMounted(() => store.loadInitialData())
   }
-};
-</script>
-
-<style scoped>
-.home {
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
 }
-</style>
+</script>

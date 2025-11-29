@@ -18,10 +18,8 @@
 <script>
 export default {
   name: "CategoryList",
-  props: {
-    categories: Array
-  }
-};
+  props: { categories: Array }
+}
 </script>
 
 <style scoped>
